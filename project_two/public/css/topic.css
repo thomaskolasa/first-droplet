@@ -1,0 +1,37 @@
+.comment {
+  background: #F5F5F5;
+  margin: 1em;
+}
+
+.vote-image {
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+}
+
+.natty {
+  display: inline-block;
+}
+
+.natty-votes {
+  text-align: center;
+  color: green;
+}
+
+.broseph {
+  display: inline-block;
+}
+
+.broseph-votes {
+  text-align: center;
+  color: red;
+}
+
+.trump {
+  display: inline-block;
+}
+
+.trump-votes {
+  text-align: center;
+  color: magenta;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Broletariat</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="static/css/index.css">
+</head>
+<body>
+  <h1>index</h1>
+
+  <div class="navbar navbar-default">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/broletariat">Broletariat</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="/broletariat">Home</a></li>
+        <li><a href="/broletariat/users/new">Become a User</a></li>
+        <li><a href="/broletariat/topics/new">Make a New Topic</a></li>
+      </ul>
+    </div>
+  </div>
+
+<!--   <div class="new-user">
+    <a href="/broletariat/users/new">
+      <button>Make a username</button>
+    </a>
+  </div>
+  <div class="new-topic">
+    <a href="/broletariat/topics/new">
+      <button>Make a new topic</button>
+    </a>
+  </div> -->
+
+  <div class="topics">
+    <% topics.forEach(function(topic){ %>
+      <div class="row row-topic ">
+        <div class="col-xs-4">
+          <div class="natty">
+            <form action="broletariat/topic/<%= topic.id %>/natty_vote/1/0?_method=PUT" method="POST">
+              <input type="image" class="vote-image" src="/static/img/natty.jpg">
+              <div class="natty-votes"><%= topic.natty_votes %></div>
+            </form>
+          </div>
+          <div class="broseph">
+            <form action="broletariat/topic/<%= topic.id%>/broseph_vote/1/0?_method=PUT" method="POST">
+              <input type="image" class="vote-image" src="/static/img/broseph_stalin.png">
+              <div class="broseph-votes"><%= topic.broseph_votes %></div>
+            </form>
+          </div>
+          <div class="trump">
+            <form action="broletariat/topic/<%= topic.id%>/trump_vote/1/0?_method=PUT" method="POST">
+              <input type="image" class="vote-image" src="/static/img/trump_overcomb.jpg">
+              <div class="trump-votes"><%= topic.trump_votes %></div>
+            </form>
+          </div>
+        </div>
+        <div class="col-xs-8">
+          <div class="topic">Topic: <a href="/broletariat/topic/<%=topic.id%>"> <%= topic.topic_text %></a></div>
+          <div class="username">Started by: <%= topic.username %></div>
+          <div class="comment-number">
+            <a href="/broletariat/topic/<%=topic.id%>">
+              <span class="badge">
+                <% var numberOfComments = 0; %>
+                <% comments.forEach(function(comment){ %>
+                  <% if (comment.topic_id == topic.id) { %>
+                    <% numberOfComments++ %>
+                  <% } %>
+                <% }); %>
+                <%= numberOfComments %> Comment<% if(numberOfComments!==1){ %>s<% } %>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      </br>
+    <% }); %>
+  </div>
+
+</body>
+</html>

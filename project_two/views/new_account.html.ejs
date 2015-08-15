@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Broletariat: New Account</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+  <h1>New Account</h1>
+
+  <div class="navbar navbar-default">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/broletariat">Broletariat</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="/broletariat">Home</a></li>
+        <li><a href="/broletariat/users/new">Become a user</a></li>
+        <li><a href="/broletariat/topics/new">Make a new topic</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <form action="/broletariat/users/new" method="POST">
+    <input type="text" name="username" placeholder="enter username">
+    <button>Submit</button>
+  </form>
+</body>
+</html>
