@@ -70,10 +70,15 @@ app.get('/broletariat/topics/new', function(req, res){
 app.post('/broletariat/topics/new_post', function(req, res){
   db.all('SELECT id FROM users WHERE users.username = (?)', req.body.username, function(err,table){
     if (err) throw err;
-    else{
+    else if (table[0]){
+    // only works if name is defined
+      console.log('table defined')
       var creator_id = table[0].id;
       db.run('INSERT INTO topics (topic_text,creator_id,natty_votes,broseph_votes,trump_votes) VALUES (?,?,?,?,?)',req.body.topic_text,parseInt(creator_id),0,0,0,function(err){
-        if(err) throw err;
+        if(err) {
+          console.log('got an error')
+          res.redirect('/broletariat/error');
+        }
         else{
           //read last created topic & redirect to its brand new page
           db.all('SELECT topics.id,topic_text,username,natty_votes,broseph_votes,trump_votes FROM topics INNER JOIN users ON creator_id = users.id WHERE topics.id = (SELECT max(id) from topics)', function(err,table){
