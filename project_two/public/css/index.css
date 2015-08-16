@@ -23,6 +23,15 @@
   color: green;
 }
 
+.natty-hover-text {
+  display: none;
+  font-size: 10px;
+}
+
+.natty:hover .natty-hover-text {
+  display: block;
+}
+
 .broseph {
   display: inline-block;
 }

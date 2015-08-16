@@ -5,6 +5,9 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="../../static/css/topic.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../../static/js/topic.js"></script>
 </head>
 <body>
   <h1>Topic:</h1>
@@ -25,19 +28,19 @@
   <div class="topics">
     <div class="row row-topic ">
       <div class="col-xs-4">
-        <div class="natty">
+        <div class="natty" data-toggle="tooltip" title="So Chill!">
           <form action="<%= topic[0].id %>/natty_vote/0/0?_method=PUT" method="POST">
             <input type="image" class="vote-image" src="/static/img/natty.jpg">
             <div class="natty-votes"><%= topic[0].natty_votes %></div>
           </form>
         </div>
-        <div class="broseph">
+        <div class="broseph" data-toggle="tooltip" title="Literally worse than Hitler">
           <form action="<%= topic[0].id%>/broseph_vote/0/0?_method=PUT" method="POST">
             <input type="image" class="vote-image" src="/static/img/broseph_stalin.png">
             <div class="broseph-votes"><%= topic[0].broseph_votes %></div>
           </form>
         </div>
-        <div class="trump">
+        <div class="trump" data-toggle="tooltip" title="Misogynistic">
           <form action="<%= topic[0].id%>/trump_vote/0/0?_method=PUT" method="POST">
             <input type="image" class="vote-image" src="/static/img/trump_overcomb.jpg">
             <div class="trump-votes"><%= topic[0].trump_votes %></div>
@@ -79,19 +82,19 @@
             <div class="comment-number">
               <p><%= commentNumber+=1 %>.</p>
             </div>
-            <div class="natty">
+            <div class="natty" data-toggle="tooltip" title="So Chill!">
               <form action="<%= topic[0].id %>/natty_vote/0/<%= comment.comment_id %>?_method=PUT" method="POST">
                 <input type="image" class="vote-image-comment" src="/static/img/natty.jpg">
                 <div class="cnatty-votes"><%= comment.cnatty_votes %></div> 
               </form>
             </div>
-            <div class="broseph">
+            <div class="broseph" data-toggle="tooltip" title="Literally worse than Hitler">
               <form action="<%= topic[0].id%>/broseph_vote/0/<%= comment.comment_id %>?_method=PUT" method="POST">
                 <input type="image" class="vote-image-comment" src="/static/img/broseph_stalin.png">
                 <div class="cbroseph-votes"><%= comment.cbroseph_votes %></div>
               </form>
             </div>
-            <div class="trump">
+            <div class="trump" data-toggle="tooltip" title="Misogynistic">
               <form action="<%= topic[0].id%>/trump_vote/0/<%= comment.comment_id %>?_method=PUT" method="POST">
                 <input type="image" class="vote-image-comment" src="/static/img/trump_overcomb.jpg">
                 <div class="ctrump-votes"><%= comment.ctrump_votes %></div>

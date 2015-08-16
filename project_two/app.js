@@ -53,7 +53,7 @@ app.get('/broletariat/topic/:id', function(req, res){
     if (err) throw err;
     else{
       var topics = table;
-      db.all('SELECT username,users.id,comments.id AS comment_id,comment,topic_id,cnatty_votes,cbroseph_votes,ctrump_votes FROM comments LEFT JOIN users ON ccreator_id = users.id WHERE comments.topic_id = (?)',req.params.id, function(err, table){
+      db.all('SELECT username,users.id,comments.id AS comment_id,comment,topic_id,cnatty_votes,cbroseph_votes,ctrump_votes FROM comments LEFT JOIN users ON ccreator_id = users.id WHERE comments.topic_id = (?) ORDER BY cnatty_votes DESC',req.params.id, function(err, table){
         var comments = table;
         res.render('topic.html.ejs', {topic: topics, comments: comments});
       });
