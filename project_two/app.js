@@ -19,7 +19,7 @@ app.get('/', function(req, res){
 
 //read index page
 app.get('/broletariat', function(req, res){
-  db.all("SELECT topics.id,topic_text,creator_id,natty_votes,broseph_votes,trump_votes,username FROM topics INNER JOIN users ON topics.creator_id = users.id ", function(err, table){
+  db.all("SELECT topics.id,topic_text,creator_id,natty_votes,broseph_votes,trump_votes,username FROM topics INNER JOIN users ON topics.creator_id = users.id ORDER BY natty_votes DESC", function(err, table){
     if (err) throw err;
     else{
       var topics = table;
@@ -49,7 +49,7 @@ app.post('/broletariat/users/new', function(req, res){
 
 //read topic page
 app.get('/broletariat/topic/:id', function(req, res){
-  db.all('SELECT username,topics.id,topic_text,natty_votes,broseph_votes,trump_votes FROM topics INNER JOIN users ON creator_id = users.id WHERE topics.id = "'+req.params.id+'"', function(err, table){
+  db.all('SELECT username,topics.id,topic_text,natty_votes,broseph_votes,trump_votes FROM topics INNER JOIN users ON creator_id = users.id WHERE topics.id = (?)', req.params.id, function(err, table){
     if (err) throw err;
     else{
       var topics = table;

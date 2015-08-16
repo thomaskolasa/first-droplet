@@ -1,9 +1,31 @@
+
+.row-topic {
+  background: #F5F5F5;
+  margin: 1em;
+}
+
+.topic {
+  font-size: 18px;
+}
+
+.vote-image {
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+}
+
+
+
 .comment {
   background: #F5F5F5;
   margin: 1em;
 }
 
-.vote-image {
+.comment-number {
+  display: inline-block;
+}
+
+.vote-image-comment {
   height: 20px;
   width: 20px;
   display: inline-block;
@@ -11,27 +33,34 @@
 
 .natty {
   display: inline-block;
+  text-align: center;
 }
 
-.natty-votes {
+.natty-votes, .cnatty-votes {
   text-align: center;
   color: green;
 }
 
 .broseph {
   display: inline-block;
+  text-align: center;
 }
 
-.broseph-votes {
+.broseph-votes, .cbroseph-votes {
   text-align: center;
   color: red;
 }
 
 .trump {
   display: inline-block;
+  text-align: center;
 }
 
-.trump-votes {
+.trump-votes, .ctrump-votes {
   text-align: center;
   color: magenta;
+}
+
+.commenter {
+  font-size: 16px;
 }
