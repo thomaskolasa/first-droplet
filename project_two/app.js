@@ -68,7 +68,7 @@ app.get('/broletariat/topics/new', function(req, res){
 
 //create new topic
 app.post('/broletariat/topics/new_post', function(req, res){
-  db.all('SELECT id FROM users WHERE users.username = "'+req.body.username+'"', function(err,table){
+  db.all('SELECT id FROM users WHERE users.username = (?)', req.body.username, function(err,table){
     if (err) throw err;
     else{
       var creator_id = table[0].id;
